@@ -38,7 +38,7 @@ public final class PersonFactory {
      *
      * @param listSize - number of Person objects to create
      * @return - ArrayList of Person objects
-     */ // TODO
+     */
     public List<Person> createPersonList(int listSize) {
         List<Person> plist = new ArrayList();
         for (int i = 0; i < listSize ; i++) {
@@ -51,7 +51,7 @@ public final class PersonFactory {
     /**
      * @param arrayLength - number of Person objects to create
      * @return - Array of Person objects
-     */ // TODO
+     */
     public Person[] createPersonArray(int arrayLength) {
 
         return createPersonList(arrayLength).toArray(new Person[0]);
@@ -63,7 +63,7 @@ public final class PersonFactory {
      *
      * @param streamCount - number of Person objects to create
      * @return - Stream representation of collection of Person objects
-     */ // TODO
+     */
     public Stream<Person> createPersonStream(int streamCount) {
         return createPersonList(streamCount).stream();
     }

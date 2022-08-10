@@ -34,17 +34,26 @@ public final class PersonWarehouse implements Iterable<Person> {
 
     /**
      * @return list of names of Person objects
-     */ // TODO
+     */
     public List<String> getNames() {
-        return null;
+        List<String> nameList = new ArrayList<>();
+        for (Person p : people) {
+            nameList.add(p.getName());
+        }
+        return nameList;
     }
 
 
     /**
      * @return list of uniquely named Person objects
-     */ //TODO
+     */
     public Stream<Person> getUniquelyNamedPeople() {
-        return null;
+        List<Person> uniqueList = new ArrayList<>();
+        for(Person p : people) {
+            if (uniqueList.contains(p.getName()));
+            else uniqueList.add(p);
+        }
+        return uniqueList.stream();
     }
 
 
