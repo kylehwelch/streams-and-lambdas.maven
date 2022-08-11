@@ -4,6 +4,7 @@ import com.zipcodewilmington.streams.tools.RandomUtils;
 import com.zipcodewilmington.streams.tools.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,11 +41,7 @@ public final class PersonFactory {
      * @return - ArrayList of Person objects
      */
     public List<Person> createPersonList(int listSize) {
-        List<Person> plist = new ArrayList();
-        for (int i = 0; i < listSize ; i++) {
-            plist.add(createRandomPerson());
-        }
-        return plist;
+        return createPersonStream(listSize).collect(Collectors.toList());
     }
 
 
@@ -53,7 +50,6 @@ public final class PersonFactory {
      * @return - Array of Person objects
      */
     public Person[] createPersonArray(int arrayLength) {
-
         return createPersonList(arrayLength).toArray(new Person[0]);
     }
 
@@ -65,6 +61,6 @@ public final class PersonFactory {
      * @return - Stream representation of collection of Person objects
      */
     public Stream<Person> createPersonStream(int streamCount) {
-        return createPersonList(streamCount).stream();
+        return Stream.generate(this::createRandomPerson).limit(streamCount);
     }
 }
